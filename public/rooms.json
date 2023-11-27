@@ -1,40 +1,67 @@
 [
-  {
-    "_id": "654f6d935abba09d18da69cb",
-    "location": "Canterbury, United Kingdom",
-    "title": "Bumble Barn at Great Field Farm",
-    "from": "2023-11-27T18:00:00.000Z",
-    "to": "2023-11-29T18:00:00.000Z",
-    "price": 305,
-    "guests": "6",
-    "bedrooms": "3",
-    "bathrooms": "2",
-    "description": "Great Field Farm is set in 45 acres, including gardens, paddocks and the great field with different crops each year.\nBumble Barn is the newest addition to our eco-friendly  holiday lodges. Built to Passiv house standards with smart technology and a beautiful living sedum roof that bees love.\nThe views from the sitting room and patio over open fields and sky are stunning, with wildlife all around",
-    "image": "https://i.ibb.co/f1494DN/london.webp",
-    "host": {
-      "name": "Shakil Ahmed Atik",
-      "image": "https://lh3.googleusercontent.com/a/ACg8ocJpxSpFQvm4fucJxMSOYG07EY-4eEqymED0zn2w8hBgHw=s96-c",
-      "email": "shakilatik.ph@gmail.com"
+    {
+      "category": "Breakfast",
+      "title": "Avocado Toast",
+      "image": "https://i.ibb.co/yQKH4FY/image.png",
+      "rating": 4.2,
+      "price": "$7.99",
+      "details": "Learn More"
     },
-    "category": "Modern"
-  },
-  {
-    "_id": "654f6d935ee09d18da69cb",
-    "location": "Gaular, Norway",
-    "title": "Breathtaking Mountain views in cozy Birdbox",
-    "from": "2023-11-25T18:00:00.000Z",
-    "to": "2023-11-29T18:00:00.000Z",
-    "price": 269,
-    "guests": "2",
-    "bedrooms": "1",
-    "bathrooms": "1",
-    "description": "Enjoy the relaxed and comfortable enclosure of the Birdbox. Sleep right beside nature and its amazing  surroundings. Lay down and look at the spectacular mountains all around you. Put on your skis and have a breathtaking journey around the nearby trails. Hike down to Langelandsvatnet in the summer and enjoy swimming in energizing water. Your imagination is the limit for what you can experience.",
-    "image": "https://i.ibb.co/M6mBkXT/Avalon-Beach.webp",
-    "host": {
-      "name": "Shakil Ahmed Atik",
-      "image": "https://lh3.googleusercontent.com/a/ACg8ocJpxSpFQvm4fucJxMSOYG07EY-4eEqymED0zn2w8hBgHw=s96-c",
-      "email": "shakilatik.ph@gmail.com"
+    {
+      "category": "Lunch",
+      "title": "Quinoa Salad Bowl",
+      "image": "https://i.ibb.co/qC9jBcY/image.png",
+      "rating": 4.5,
+      "price": "$10.99",
+      "details": "Learn More"
     },
-    "category": "Beach"
-  }
-]
+    {
+      "category": "Dinner",
+      "title": "Salmon with Roasted Vegetables",
+      "image": "https://i.ibb.co/DfXyF8V/image.png",
+      "rating": 4.8,
+      "price": "$14.99",
+      "details": "Learn More"
+    },
+    {
+      "category": "Breakfast",
+      "title": "Blueberry Pancakes",
+      "image": "https://i.ibb.co/2tzjnfQ/image.png",
+      "rating": 4.4,
+      "price": "$9.99",
+      "details": "Learn More"
+    },
+    {
+      "category": "Lunch",
+      "title": "Vegan Buddha Bowl",
+      "image": "https://i.ibb.co/zZH4mjk/image.png",
+      "rating": 4.6,
+      "price": "$12.99",
+      "details": "Learn More"
+    },
+    {
+      "category": "Dinner",
+      "title": "Steak with Garlic Butter",
+      "image": "https://i.ibb.co/BgRGGvL/image.png",
+      "rating": 4.9,
+      "price": "$18.99",
+      "details": "Learn More"
+    },
+    {
+      "category": "Breakfast",
+      "title": "Greek Yogurt Parfait",
+      "image": "https://i.ibb.co/259Z8TS/image.png",
+      "rating": 4.3,
+      "price": "$6.99",
+      "details": "Learn More"
+    },
+    {
+      "category": "Lunch",
+      "title": "Chicken Caesar Wrap",
+      "image": "https://i.ibb.co/dbDrr6Q/image.png",
+      "rating": 4.2,
+      "price": "$11.99",
+      "details": "Learn More"
+    }
+  ]
+

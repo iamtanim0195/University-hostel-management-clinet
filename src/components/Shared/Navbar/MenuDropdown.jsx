@@ -6,7 +6,7 @@ import avatarImg from '../../../assets/images/placeholder.jpg'
 
 const MenuDropdown = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const { user } = useAuth()
+  const { user, logOut } = useAuth()
 
   return (
     <div className='relative'>
@@ -25,19 +25,16 @@ const MenuDropdown = () => {
           </Link>
           <Link to="/">
             <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
-            Upcoming Meals
+              Upcoming Meals
             </button>
           </Link>
-          <Link to="/">
-            <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
-              Home
-            </button>
-          </Link>
-          <Link to="/">
-            <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
-            Join US
-            </button>
-          </Link>
+          {user ? <> </> : <>
+            <Link to="/">
+              <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
+                Join US
+              </button>
+            </Link></>}
+
         </div>
         {/* Dropdown btn */}
         <div
@@ -67,19 +64,51 @@ const MenuDropdown = () => {
             >
               Home
             </Link>
+            <Link
+              to='/'
+              className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+            >
+              Meals
+            </Link>
+            <Link
+              to='/'
+              className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+            >
+              Upcoming Meals
+            </Link>
+            {user ? <>
+              <h1 className='text-2xl p-2'>{user.displayName}</h1>
+              <Link
+                to='/login'
+                className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+              >
+                Dashboard
+              </Link>
+              <div
+                onClick={logOut}
+                className='px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer'
+              >
+                LogOut
+              </div></> : <>
+              {user ? <> </> : <>
+                <Link to="/">
+                  <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
+                    Join US
+                  </button>
+                </Link></>}
 
-            <Link
-              to='/login'
-              className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
-            >
-              Login
-            </Link>
-            <Link
-              to='/signup'
-              className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
-            >
-              Sign Up
-            </Link>
+              <Link
+                to='/login'
+                className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+              >
+                Login
+              </Link>
+              <Link
+                to='/signup'
+                className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+              >
+                Sign Up
+              </Link></>}
           </div>
         </div>
       )}

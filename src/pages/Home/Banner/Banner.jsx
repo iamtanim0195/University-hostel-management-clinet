@@ -13,7 +13,7 @@ const Banner = () => {
                     <div className=" flex justify-center join pt-10 ">
                         <div>
                             <div >
-                                <input className="input input-bordered join-item" placeholder="Search" />
+                                <input className="input input-bordered join-item text-black" placeholder="Search"  type="text" />
                             </div>
                         </div>
                         <div className="indicator">
@@ -21,9 +21,6 @@ const Banner = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="flex flex-1  justify-center ">
-
             </div>
         </div>
 
