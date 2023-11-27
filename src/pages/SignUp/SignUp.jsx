@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import { TbFidgetSpinner } from "react-icons/tb";
 
 const SignUp = () => {
-  const { createUser, signInWithGoogle, updateUserProfile, loading } = useAuth();
+  const { createUser, signInWithGoogle, updateUserProfile, loading, setLoading } = useAuth();
   const navigate = useNavigate();
   //from submit handlers
   const handelSubmit = async event => {
@@ -28,16 +28,17 @@ const SignUp = () => {
       console.log(dbResponse)
 
       await getToken(result?.user?.email)
-      toast.success("SignUp is successful");
+      toast.success("logIn is successful");
       navigate('/');
 
     } catch (error) {
       console.log(error)
       toast.error(error?.message);
+      setLoading(false)
     }
   }
   //handle google sign
-  const handelGoogleSignin = async()=> {
+  const handelGoogleSignin = async () => {
     try {
       const result = await signInWithGoogle()
       const dbResponse = await saveUser(result?.user)
