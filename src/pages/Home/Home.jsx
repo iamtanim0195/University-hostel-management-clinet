@@ -1,6 +1,7 @@
 import Banner from "./Banner/Banner"
 import ContactUs from "./ContactUS/ContactUs"
 import MealsByCategory from "./MealsByCategory/MealsByCategory"
+import Membership from "./Membership/Membership"
 
 const Home = () => {
 
@@ -8,6 +9,7 @@ const Home = () => {
     <div>
       <Banner />
       <MealsByCategory />
+      <Membership/>
       <ContactUs/>
     </div>
   )
