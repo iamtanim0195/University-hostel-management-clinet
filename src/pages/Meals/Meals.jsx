@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { getmealByCategory } from "../../api/mealCategory";
 import useAuth from "../../hooks/useAuth";
 import Loader from "../../components/Shared/Loader";
@@ -17,20 +18,10 @@ const Meals = () => {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [minPrice, setMinPrice] = useState("");
     const [maxPrice, setMaxPrice] = useState("");
+    const [hasMore, setHasMore] = useState(true);
+    const [page, setPage] = useState(1); // Track the current page
 
-    const filteredMeals = meals
-        .filter((meal) =>
-            meal.title.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-        .filter((meal) =>
-            selectedCategory === "All" ? true : meal.category === selectedCategory
-        )
-        .filter((meal) =>
-            minPrice && maxPrice
-                ? parseFloat(meal.price.substring(1)) >= parseFloat(minPrice) &&
-                parseFloat(meal.price.substring(1)) <= parseFloat(maxPrice)
-                : true
-        );
+    const [filteredMeals, setFilteredMeals] = useState([]);
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
@@ -48,11 +39,36 @@ const Meals = () => {
         setMaxPrice(e.target.value);
     };
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
+    useEffect(() => {
+        setFilteredMeals(meals);
+        setHasMore(true);
+        setPage(1);
+    }, [meals]);
+
+    const loadMore = async () => {
+        try {
+            const newMeals = await getmealByCategory(page + 1);
+            setFilteredMeals((prevMeals) => [...prevMeals, ...newMeals]);
+            setPage((prevPage) => prevPage + 1);
+        } catch (error) {
+            console.error("Error loading more meals:", error);
+            setHasMore(false);
+        }
+    };
+
     if (isLoading) return <Loader />;
 
     return (
         <div>
-            <div className="p-5 w-1/2   mx-auto">
+            <div className="p-5 w-1/2 mx-auto">
+
                 <input
                     type="text"
                     placeholder="Search by meal title"
@@ -91,12 +107,28 @@ const Meals = () => {
                         />
                     </div>
                 </div>
+
             </div>
-            <div className="grid md:grid-cols-3 gap-3 p-5">
-                {filteredMeals.map((meal) => (
-                    <MealCard key={meal._id} meal={meal} />
-                ))}
-            </div>
+            <InfiniteScroll
+                dataLength={filteredMeals.length}
+                next={loadMore}
+                hasMore={hasMore}
+                loader={<Loader />} // Loader component while loading more data
+            >
+                <div className="grid md:grid-cols-3 gap-3 p-5">
+                    {filteredMeals.map((meal) => (
+                        <MealCard key={meal._id} meal={meal} />
+                    ))}
+                </div>
+            </InfiniteScroll>
+            {filteredMeals.length > 0 && (
+                <button
+                    className="fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-md shadow-md"
+                    onClick={scrollToTop}
+                >
+                    Go to Top
+                </button>
+            )}
         </div>
     );
 };
