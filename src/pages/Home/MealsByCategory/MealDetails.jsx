@@ -1,9 +1,24 @@
-import { useLoaderData} from "react-router-dom";
-
+import { Link, useLoaderData } from "react-router-dom";
+import { AiOutlineLike } from "react-icons/ai";
 const MealDetails = () => {
     const meal = useLoaderData();
     return (
-        <div>{meal.title}</div>
+        <div className="card lg:card-side bg-base-100 shadow-xl">
+            <figure><img src={meal.image} alt="Album" /></figure>
+            <div className="card-body">
+                <h2 className="card-title">{meal.title}</h2>
+                <p>Distributor name:{meal.meal_distributor} </p>
+                <p>Description:{meal.meal_description} </p>
+                <p>Ingredients:{meal.ingredients} </p>
+                <p>Post time:{meal.post_time} </p>
+                <p>Rating:{meal.rating} </p>
+                <div className="card-actions justify-end">
+                    <button className="btn btn-primary"> Meal request</button>
+                    <button className="btn btn-primary"><AiOutlineLike />{meal.likes}</button>
+                    <Link><button className="btn btn-primary">See All</button></Link>
+                </div>
+            </div>
+        </div>
     );
 }
 
