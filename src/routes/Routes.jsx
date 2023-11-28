@@ -26,11 +26,11 @@ export const router = createBrowserRouter([
             <MealDetails />
           </PrivateRoute>
         ),
-          loader:({params})=> getMeal(params.id)
+        loader: ({ params }) => getMeal(params.id)
       },
+      { path: '/meals', element: <Meals /> },
     ],
   },
   { path: '/login', element: <Login /> },
   { path: '/signup', element: <SignUp /> },
-  { path: '/meals', element: <Meals /> },
 ])

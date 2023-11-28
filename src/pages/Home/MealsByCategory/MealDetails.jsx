@@ -12,10 +12,11 @@ const MealDetails = () => {
                 <p>Ingredients:{meal.ingredients} </p>
                 <p>Post time:{meal.post_time} </p>
                 <p>Rating:{meal.rating} </p>
+                <p>Reviews:{meal.reviews[0].comment} </p>
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary"> Meal request</button>
                     <button className="btn btn-primary"><AiOutlineLike />{meal.likes}</button>
-                    <Link><button className="btn btn-primary">See All</button></Link>
+                    <Link to={'/meals'}><button className="btn btn-primary">See All</button></Link>
                 </div>
             </div>
         </div>
