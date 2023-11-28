@@ -7,6 +7,7 @@ import SignUp from '../pages/SignUp/SignUp'
 import { getMeal, getmealByCategory } from '../api/mealCategory'
 import PrivateRoute from './PrivateRoute'
 import MealDetails from '../pages/Home/MealsByCategory/MealDetails'
+import Meals from '../pages/Meals/Meals'
 
 export const router = createBrowserRouter([
   {
@@ -31,4 +32,5 @@ export const router = createBrowserRouter([
   },
   { path: '/login', element: <Login /> },
   { path: '/signup', element: <SignUp /> },
+  { path: '/meals', element: <Meals /> },
 ])
