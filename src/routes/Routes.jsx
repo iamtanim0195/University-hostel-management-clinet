@@ -4,6 +4,9 @@ import Home from '../pages/Home/Home'
 import ErrorPage from '../pages/ErrorPage'
 import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
+import { getMeal, getmealByCategory } from '../api/mealCategory'
+import PrivateRoute from './PrivateRoute'
+import MealDetails from '../pages/Home/MealsByCategory/MealDetails'
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +17,15 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/mealsCategory/meal/:id',
+        element: (
+          <PrivateRoute>
+            <MealDetails />
+          </PrivateRoute>
+        ),
+          loader:({params})=> getMeal(params.id)
       },
     ],
   },

@@ -1,67 +1,138 @@
 [
-    {
-      "category": "Breakfast",
-      "title": "Avocado Toast",
-      "image": "https://i.ibb.co/yQKH4FY/image.png",
-      "rating": 4.2,
-      "price": "$7.99",
-      "details": "Learn More"
-    },
-    {
-      "category": "Lunch",
-      "title": "Quinoa Salad Bowl",
-      "image": "https://i.ibb.co/qC9jBcY/image.png",
-      "rating": 4.5,
-      "price": "$10.99",
-      "details": "Learn More"
-    },
-    {
-      "category": "Dinner",
-      "title": "Salmon with Roasted Vegetables",
-      "image": "https://i.ibb.co/DfXyF8V/image.png",
-      "rating": 4.8,
-      "price": "$14.99",
-      "details": "Learn More"
-    },
-    {
-      "category": "Breakfast",
-      "title": "Blueberry Pancakes",
-      "image": "https://i.ibb.co/2tzjnfQ/image.png",
-      "rating": 4.4,
-      "price": "$9.99",
-      "details": "Learn More"
-    },
-    {
-      "category": "Lunch",
-      "title": "Vegan Buddha Bowl",
-      "image": "https://i.ibb.co/zZH4mjk/image.png",
-      "rating": 4.6,
-      "price": "$12.99",
-      "details": "Learn More"
-    },
-    {
-      "category": "Dinner",
-      "title": "Steak with Garlic Butter",
-      "image": "https://i.ibb.co/BgRGGvL/image.png",
-      "rating": 4.9,
-      "price": "$18.99",
-      "details": "Learn More"
-    },
-    {
-      "category": "Breakfast",
-      "title": "Greek Yogurt Parfait",
-      "image": "https://i.ibb.co/259Z8TS/image.png",
-      "rating": 4.3,
-      "price": "$6.99",
-      "details": "Learn More"
-    },
-    {
-      "category": "Lunch",
-      "title": "Chicken Caesar Wrap",
-      "image": "https://i.ibb.co/dbDrr6Q/image.png",
-      "rating": 4.2,
-      "price": "$11.99",
-      "details": "Learn More"
-    }
-  ]
-
+  {
+    "category": "Breakfast",
+    "title": "Avocado Toast",
+    "image": "https://i.ibb.co/yQKH4FY/image.png",
+    "rating": 4.2,
+    "price": "$7.99",
+    "meal_distributor": "Healthy Eats",
+    "meal_description": "Delicious avocado toast with a hint of lemon.",
+    "ingredients": ["Avocado", "Bread", "Lemon"],
+    "post_time": "2023-11-28T08:00:00Z",
+    "reviews": [
+      {
+        "comment": "Great breakfast choice!"
+      }
+    ],
+    "likes": 25
+  },
+  {
+    "category": "Lunch",
+    "title": "Quinoa Salad Bowl",
+    "image": "https://i.ibb.co/qC9jBcY/image.png",
+    "rating": 4.5,
+    "price": "$10.99",
+    "meal_distributor": "Fresh Greens",
+    "meal_description": "A healthy and hearty quinoa salad bowl.",
+    "ingredients": ["Quinoa", "Vegetables", "Feta Cheese"],
+    "post_time": "2023-11-28T12:30:00Z",
+    "reviews": [
+      {
+        "comment": "Amazing flavors!"
+      }
+    ],
+    "likes": 31
+  },
+  {
+    "category": "Dinner",
+    "title": "Salmon with Roasted Vegetables",
+    "image": "https://i.ibb.co/DfXyF8V/image.png",
+    "rating": 4.8,
+    "price": "$14.99",
+    "meal_distributor": "Seafood Delights",
+    "meal_description": "Grilled salmon served with a medley of roasted vegetables.",
+    "ingredients": ["Salmon", "Broccoli", "Carrots"],
+    "post_time": "2023-11-28T19:00:00Z",
+    "reviews": [
+      {
+        "comment": "Perfectly cooked salmon!"
+      }
+    ],
+    "likes": 45
+  },
+  {
+    "category": "Breakfast",
+    "title": "Blueberry Pancakes",
+    "image": "https://i.ibb.co/2tzjnfQ/image.png",
+    "rating": 4.4,
+    "price": "$9.99",
+    "meal_distributor": "Fluffy Delights",
+    "meal_description": "Fluffy blueberry pancakes with maple syrup.",
+    "ingredients": ["Blueberries", "Pancake Mix", "Maple Syrup"],
+    "post_time": "2023-11-29T07:30:00Z",
+    "reviews": [
+      {
+        "comment": "Best pancakes ever!"
+      }
+    ],
+    "likes": 37
+  },
+  {
+    "category": "Lunch",
+    "title": "Vegan Buddha Bowl",
+    "image": "https://i.ibb.co/zZH4mjk/image.png",
+    "rating": 4.6,
+    "price": "$12.99",
+    "meal_distributor": "Green Cuisine",
+    "meal_description": "A nourishing vegan Buddha bowl with a variety of plant-based ingredients.",
+    "ingredients": ["Quinoa", "Chickpeas", "Avocado"],
+    "post_time": "2023-11-29T12:45:00Z",
+    "reviews": [
+      {
+        "comment": "So flavorful and healthy!"
+      }
+    ],
+    "likes": 28
+  },
+  {
+    "category": "Dinner",
+    "title": "Steak with Garlic Butter",
+    "image": "https://i.ibb.co/BgRGGvL/image.png",
+    "rating": 4.9,
+    "price": "$18.99",
+    "meal_distributor": "Sizzling Steaks",
+    "meal_description": "Juicy steak cooked to perfection with garlic butter.",
+    "ingredients": ["Steak", "Garlic", "Butter"],
+    "post_time": "2023-11-29T18:30:00Z",
+    "reviews": [
+      {
+        "comment": "Melt-in-your-mouth goodness!"
+      }
+    ],
+    "likes": 55
+  },
+  {
+    "category": "Breakfast",
+    "title": "Greek Yogurt Parfait",
+    "image": "https://i.ibb.co/259Z8TS/image.png",
+    "rating": 4.3,
+    "price": "$6.99",
+    "meal_distributor": "Healthy Start",
+    "meal_description": "A refreshing Greek yogurt parfait with fresh fruits and granola.",
+    "ingredients": ["Greek Yogurt", "Berries", "Granola"],
+    "post_time": "2023-11-30T09:15:00Z",
+    "reviews": [
+      {
+        "comment": "Perfectly balanced and delicious!"
+      }
+    ],
+    "likes": 42
+  },
+  {
+    "category": "Lunch",
+    "title": "Chicken Caesar Wrap",
+    "image": "https://i.ibb.co/dbDrr6Q/image.png",
+    "rating": 4.2,
+    "price": "$11.99",
+    "meal_distributor": "Wrap It Up",
+    "meal_description": "Savory chicken Caesar wrap with crisp lettuce and Parmesan cheese.",
+    "ingredients": ["Chicken", "Lettuce", "Caesar Dressing"],
+    "post_time": "2023-11-30T12:00:00Z",
+    "reviews": [
+      {
+        "comment": "A satisfying and quick lunch!"
+      }
+    ],
+    "likes": 34
+  }
+]

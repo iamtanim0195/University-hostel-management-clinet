@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-const Button = ({ label, onClick, disabled, outline, small, icon: Icon }) => {
+const Button = ({ label, disabled, outline, small, icon: Icon }) => {
   return (
     <button
       disabled={disabled}
-      onClick={onClick}
       className={`
           relative
           disabled:opacity-70
@@ -37,4 +36,4 @@ const Button = ({ label, onClick, disabled, outline, small, icon: Icon }) => {
   )
 }
 
-export default Button
+export default Button;
