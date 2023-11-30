@@ -29,7 +29,7 @@ const MenuDropdown = () => {
             </button>
           </Link>
           {user ? <> </> : <>
-            <Link to="/">
+            <Link to="/login">
               <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
                 Join US
               </button>
@@ -92,23 +92,11 @@ const MenuDropdown = () => {
               </div></> : <>
               {user ? <> </> : <>
                 <Link to="/joinUs">
-                  <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
+                  <button className=' block md:hidden disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
                     Join US
                   </button>
                 </Link></>}
-
-              <Link
-                to='/login'
-                className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
-              >
-                Login
-              </Link>
-              <Link
-                to='/signup'
-                className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
-              >
-                Sign Up
-              </Link></>}
+            </>}
           </div>
         </div>
       )}
