@@ -1,32 +1,17 @@
-import { DateRange } from 'react-date-range';
 import { TbFidgetSpinner } from 'react-icons/tb';
 import { categories } from '../Categories/categoriesData';
 const AddMealForm = ({
     handleSubmit,
-    dates,
-    handleDates,
     loading = false,
     handleImageChange,
     uploadButtonText,
+    handleButtonClick,
 }) => {
     return (
         <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
             <form onSubmit={handleSubmit}>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
                     <div className='space-y-6'>
-                        <div className='space-y-1 text-sm'>
-                            <label htmlFor='description' className='block text-gray-600'>
-                                Description
-                            </label>
-                            <input
-                                className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                                name='description'
-                                id='description'
-                                type='text'
-                                placeholder='Description'
-                                required
-                            />
-                        </div>
                         <div className='space-y-1 text-sm'>
                             <label htmlFor='category' className='block text-gray-600'>
                                 Meal Category
@@ -117,15 +102,17 @@ const AddMealForm = ({
                                 <div className='flex flex-col w-max mx-auto text-center'>
                                     <label>
                                         <input
+                                            onChange={e => handleImageChange(e.target.files[0])}
                                             className='text-sm cursor-pointer w-36 hidden'
                                             type='file'
                                             name='image'
                                             id='image'
                                             accept='image/*'
+                                            required
                                             hidden
                                         />
                                         <div className='bg-rose-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-500'>
-                                            Upload Image
+                                            {uploadButtonText}
                                         </div>
                                     </label>
                                 </div>
@@ -146,12 +133,12 @@ const AddMealForm = ({
                                 />
                             </div>
                             <div className='space-y-1 text-sm'>
-                                <label htmlFor='guest' className='block text-gray-600'>
+                                <label htmlFor='rating' className='block text-gray-600'>
                                     Rating
                                 </label>
                                 <input
                                     className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                                    name='ratingt'
+                                    name='rating'
                                     id='rating'
                                     type='number'
                                     placeholder='Rating'
@@ -201,20 +188,23 @@ const AddMealForm = ({
                         </div>
                     </div>
                 </div>
-                <div className='w-80  flex flex-col md:flex-row gap-5 mx-auto '>
-                    <button
+
+                <div className='w-80 flex flex-col md:flex-row gap-5 mx-auto '>
+                <button
                         type='submit'
                         className='btn btn-primary p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-rose-500'
+                        onClick={() => handleButtonClick('addMeal')}
                     >
                         {loading ? (
                             <TbFidgetSpinner className='m-auto animate-spin' size={24} />
                         ) : (
-                            'Add meal'
+                            'Add Meal'
                         )}
                     </button>
                     <button
                         type='submit'
-                        className='btn btn-primary  p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-rose-500'
+                        className='btn btn-primary p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-rose-500'
+                        onClick={() => handleButtonClick('addToUpcoming')}
                     >
                         {loading ? (
                             <TbFidgetSpinner className='m-auto animate-spin' size={24} />

@@ -23,7 +23,7 @@ const MenuDropdown = () => {
               Meals
             </button>
           </Link>
-          <Link to="/">
+          <Link to="/up-coming-meals">
             <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
               Upcoming Meals
             </button>

@@ -11,6 +11,9 @@ import Meals from '../pages/Meals/Meals'
 import DashboardLayout from '../layouts/DashBoardLayout'
 import AddMeal from '../pages/Dashboard/Distributor/AddMeal'
 import AllMeals from '../pages/Dashboard/Distributor/AllMeals'
+import Profile from '../pages/Dashboard/Common/Profile'
+import UpCommingMeals from '../pages/Home/UpComingMEals/UpCommingMeals'
+import ByMemberCard from '../pages/Home/Membership/ByMemberCard'
 
 export const router = createBrowserRouter([
   {
@@ -31,9 +34,18 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) => getMeal(params.id)
       },
+      {
+        path: '/checkout/:label',
+        element: (
+          <PrivateRoute>
+            <ByMemberCard />
+          </PrivateRoute>
+        ),
+      },
       { path: '/meals', element: <Meals /> },
       { path: '/login', element: <Login /> },
       { path: '/signup', element: <SignUp /> },
+      { path: '/up-coming-meals', element: <UpCommingMeals /> },
     ],
   },
   {
@@ -47,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: 'all-meals',
         element: <AllMeals />,
+      },
+      {
+        path: '/dashboard',
+        element: <PrivateRoute><Profile /></PrivateRoute>,
       },
     ]
   },
