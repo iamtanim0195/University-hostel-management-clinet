@@ -13,7 +13,7 @@ const StudentMenu = () => {
             <MenuItem
                 icon={IoIosAddCircle}
                 label='My Reviews'
-                address='my-reviewss'
+                address='my-reviews'
             />
         </>
     )

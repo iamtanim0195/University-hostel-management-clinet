@@ -12,7 +12,8 @@ const ContactUs = () => {
                                 Fill up the form below to send us a message.
                             </p>
                         </div>
-                        <form>
+                        <form action="https://formspree.io/f/mleyqkyv"
+                            method="POST">
                             <input
                                 className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 type="text"

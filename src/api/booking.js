@@ -14,6 +14,10 @@ export const savereqInfo = async (reqInfo)=>{
     const {data} = await axiosSecure.post('/reqInfo', reqInfo)
     return data
 }
+export const getreqInfo = async () => {
+    const {data} = await axiosSecure('/reqInfo');
+    return data;
+};
 export const getBookingInfo = async () => {
     const {data} = await axiosSecure('/bookings');
     return data;

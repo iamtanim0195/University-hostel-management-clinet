@@ -9,11 +9,14 @@ import PrivateRoute from './PrivateRoute'
 import MealDetails from '../pages/Home/MealsByCategory/MealDetails'
 import Meals from '../pages/Meals/Meals'
 import DashboardLayout from '../layouts/DashBoardLayout'
-import AddMeal from '../pages/Dashboard/Distributor/AddMeal'
-import AllMeals from '../pages/Dashboard/Distributor/AllMeals'
 import Profile from '../pages/Dashboard/Common/Profile'
 import UpCommingMeals from '../pages/Home/UpComingMEals/UpCommingMeals'
 import ByMemberCard from '../pages/Home/Membership/ByMemberCard'
+import RequestedMeals from '../pages/Dashboard/Student/RequestedMeals'
+import MyReviews from '../pages/Dashboard/Student/MyReviews'
+import AddMeal from '../pages/Dashboard/Admin/AddMeal'
+import AllMeals from '../pages/Dashboard/Admin/AllMeals'
+import ManageUsers from '../pages/Dashboard/Admin/ManageUsers'
 
 export const router = createBrowserRouter([
   {
@@ -54,11 +57,23 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'add-meal',
-        element: <AddMeal />,
+        element:<PrivateRoute> <AddMeal /></PrivateRoute>,
+      },
+      {
+        path: 'manage-users',
+        element: <PrivateRoute><ManageUsers /></PrivateRoute> ,
       },
       {
         path: 'all-meals',
-        element: <AllMeals />,
+        element: <PrivateRoute><AllMeals /></PrivateRoute>,
+      },
+      {
+        path: 'requested-meals',
+        element:<PrivateRoute><RequestedMeals /></PrivateRoute> ,
+      },
+      {
+        path: 'my-reviews',
+        element:<PrivateRoute><MyReviews /></PrivateRoute> ,
       },
       {
         path: '/dashboard',

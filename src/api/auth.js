@@ -28,3 +28,17 @@ export const getRole = async (email) => {
     const { data } = await axiosSecure.get(`/users/${email}`)
     return data.role
 }
+//all user get
+export const getUsers = async () => {
+    const { data } = await axiosSecure.get('/users')
+    return data
+}
+//update role
+export const updateRole = async ({ email, role }) => {
+    const currentUser = {
+        email, role,
+        status: 'Verified',
+    }
+    const { data } = await axiosSecure.put(`/users/update/${email}`, currentUser)
+    return data
+}

@@ -11,6 +11,7 @@ import { IoIosAddCircle } from "react-icons/io";
 import { GiMeal } from "react-icons/gi";
 import useRole from '../../../hooks/useRole';
 import StudentMenu from './StudentMenu';
+import AdminMenu from './AdminMenu';
 
 const Sidebar = () => {
     const [toggle, setToggle] = useState(false)
@@ -56,7 +57,6 @@ const Sidebar = () => {
                     {/* Nav Items */}
                     <div className='flex flex-col justify-between flex-1 mt-6'>
                         {/* If a user is host */}
-                        <ToggleBtn toggleHandler={toggleHandler} />
                         <nav>
                             <MenuItem
                                 icon={FcSettings}
@@ -64,7 +64,11 @@ const Sidebar = () => {
                                 address='/dashboard'
                             />
                             {/* Menu Items */}
-                            <StudentMenu />
+                            {role === 'admin' ? (
+                                <AdminMenu />
+                            ) : (
+                                <StudentMenu />
+                            )}
                         </nav>
                     </div>
                 </div>

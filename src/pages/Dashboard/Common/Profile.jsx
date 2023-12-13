@@ -1,11 +1,22 @@
+import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../hooks/useAuth'
 /* import useRole from '../../../hooks/useRole'
  */import { Helmet } from 'react-helmet-async'
+import { getBookingInfo } from '../../../api/booking';
+import Loader from '../../../components/Shared/Loader';
+import useRole from '../../../hooks/useRole';
 
 const Profile = () => {
-    const { user } = useAuth()
-    /* const [role] = useRole() */
-    console.log(user)
+    const { user,loading } = useAuth()
+    const [role] = useRole()
+    const { data: booking = [], isLoading } = useQuery({
+        queryKey: ['bookings'],
+        enabled: !loading,
+        queryFn: async () => await getBookingInfo(),
+    });
+
+    const filteredBookings = booking.filter(book => book.student.email === user.email);
+    if (isLoading) return <Loader />;
     return (
         <div className='flex justify-center items-center h-screen'>
             <Helmet>
@@ -30,7 +41,7 @@ const Profile = () => {
                         {role && role.toUpperCase()}
                     </p> */}
                     <p className='mt-2 text-xl font-medium text-gray-800 '>
-                        User Id: {user.uid}
+                        {role}
                     </p>
                     <div className='w-full p-2 mt-4 rounded-lg'>
                         <div className='flex flex-wrap items-center justify-between text-sm text-gray-600 '>
@@ -46,7 +57,7 @@ const Profile = () => {
                             </p>
                             <p className='flex flex-col'>
                                 Badge
-                                <span className='font-bold text-black '>{user.badge}</span>
+                                <span className='font-bold text-black '>{filteredBookings[0]?.badge}</span>
                             </p>
 
                             <div>

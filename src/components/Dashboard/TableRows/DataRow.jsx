@@ -1,39 +1,29 @@
-import { format } from 'date-fns'
+import useAuth from '../../../hooks/useAuth';
+import Loader from '../../Shared/Loader';
+import { getreqInfo } from '../../../api/booking';
+import { useQuery } from '@tanstack/react-query';
 
-const RoomDataRow = ({ room }) => {
+const MealDataRow = () => {
+    const { loading } = useAuth();
+    const { data: reqInfo = [], isLoading } = useQuery({
+        queryKey: ['reqIfo'],
+        enabled: !loading,
+        queryFn: async () => await getreqInfo(),
+    });
+    if (isLoading) return <Loader />;
     return (
         <tr>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <div className='flex items-center'>
-                    <div className='flex-shrink-0'>
-                        <div className='block relative'>
-                            <img
-                                alt='profile'
-                                src={room?.image}
-                                className='mx-auto object-cover rounded h-10 w-15 '
-                            />
-                        </div>
-                    </div>
-                    <div className='ml-3'>
-                        <p className='text-gray-900 whitespace-no-wrap'>{room?.title}</p>
-                    </div>
-                </div>
+                <p className='text-gray-900 whitespace-no-wrap'>{reqInfo[0]?.meal}</p>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <p className='text-gray-900 whitespace-no-wrap'>{room?.location}</p>
+                <p className='text-gray-900 whitespace-no-wrap'>{reqInfo[0]?.likes}</p>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <p className='text-gray-900 whitespace-no-wrap'>${room?.price}</p>
+                <p className='text-gray-900 whitespace-no-wrap'>{reqInfo[0]?.reviews}</p>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <p className='text-gray-900 whitespace-no-wrap'>
-                    {format(new Date(room?.from), 'P')}
-                </p>
-            </td>
-            <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <p className='text-gray-900 whitespace-no-wrap'>
-                    {format(new Date(room?.to), 'P')}
-                </p>
+                <p className='text-gray-900 whitespace-no-wrap'>{reqInfo[0]?.status}</p>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                 <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
@@ -41,20 +31,11 @@ const RoomDataRow = ({ room }) => {
                         aria-hidden='true'
                         className='absolute inset-0 bg-red-200 opacity-50 rounded-full'
                     ></span>
-                    <span className='relative'>Delete</span>
-                </span>
-            </td>
-            <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
-                    <span
-                        aria-hidden='true'
-                        className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
-                    ></span>
-                    <span className='relative'>Update</span>
+                    <span className='relative'>Cancel</span>
                 </span>
             </td>
         </tr>
     )
 }
 
-export default RoomDataRow
+export default MealDataRow;
